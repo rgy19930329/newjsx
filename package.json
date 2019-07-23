@@ -1,0 +1,22 @@
+{
+  "name": "newjsx",
+  "version": "1.0.0",
+  "description": "new a jsx component",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "newjsx": "./index.js"
+  },
+  "keywords": [
+    "newjsx"
+  ],
+  "author": "ranguangyu",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.20.0",
+    "dateformat": "^3.0.3",
+    "handlebars": "^4.1.2"
+  }
+}
