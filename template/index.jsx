@@ -1,5 +1,5 @@
 /**
- * @desc 组件 - {{componentName}}
+ * @desc {{#if isComponent}}组件{{else}}页面{{/if}} - {{componentName}}
  * @author {{author}}
  * @date {{date}}
  */

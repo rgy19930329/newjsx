@@ -7,7 +7,7 @@ const program = require("commander");
 const config = require("./package.json");
 const Handlebars = require("handlebars");
 const dateFormat = require("dateformat");
-const { camal2line } = require("./utils");
+const { camel2line, line2camel, firstLetterUpper } = require("./utils");
 
 program.version(config.version, "-v, --version")
 .option("-s, --style [value]", "less文件")
@@ -19,9 +19,8 @@ let source = fs.readFileSync(__dirname + "/template/index.jsx", "utf-8");
 let jsxTemplate = Handlebars.compile(source);
 
 let componentName = path.basename(process.cwd()) // 获取执行当前命令的文件夹名称字符串
-componentName = componentName.replace(/^\w/, function(all) {
-  return all.toUpperCase();
-});
+componentName = line2camel(componentName);
+componentName = firstLetterUpper(componentName);
 
 let styleFileName = program.style 
   ? typeof program.style === "boolean"
@@ -29,7 +28,7 @@ let styleFileName = program.style
       : `${program.style}`
   : "";
 
-let componentClassName = `"${type}${camal2line(componentName)}-wrapper"`;
+let componentClassName = `"${type}${camel2line(componentName)}-wrapper"`;
 
 let result = jsxTemplate({
   componentName,
@@ -45,7 +44,7 @@ fs.writeFileSync("index.jsx", result);
 
 if (!!program.style) {
   let styleContent = 
-`.${type}${camal2line(componentName)}-wrapper {
+`.${type}${camel2line(componentName)}-wrapper {
 
 }`;
   fs.writeFileSync(`${styleFileName}.less`, styleContent);
