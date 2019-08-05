@@ -17,6 +17,9 @@ newjsx
 ## 生成 page
 newjsx page
 
+## 生成 page + style
+newjsx page -s
+
 ## 生成 component + style(index.less)
 newjsx -s
 
