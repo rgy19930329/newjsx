@@ -13,8 +13,8 @@ import PropTypes from "prop-types";
 {{/if}}
 
 export default class {{componentName}} extends React.Component {
-  
   {{#if isComponent}}
+  
   static propTypes = {
     
   }
